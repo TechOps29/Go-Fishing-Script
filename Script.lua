@@ -20,13 +20,13 @@ end
 -- Fishing Functions
 local function opFightClick()
     if os.clock() - lastFightClickTime >= cooldown then
-        ReplicatedStorage.Events.fishing.fightClick:FireServer()
+        ReplicatedStorage.events.fishing.fightClick:FireServer()
         lastFightClickTime = os.clock()
     end
 end
 
 local function startFightWithFish()
-    ReplicatedStorage.Events.fishing.startFightLocal:FireServer()
+    ReplicatedStorage.events.fishing.startFightLocal:FireServer()
 end
 
 local function throwBait()
@@ -40,7 +40,7 @@ local function throwBait()
         [3] = Vector3.new(position.X, position.Y, position.Z)
     }
 
-    ReplicatedStorage.Events.fishing.throwBait:InvokeServer(unpack(args))
+    ReplicatedStorage.events.fishing.throwBait:InvokeServer(unpack(args))
 end
 
 -- Toggle Functionality
